@@ -4,7 +4,7 @@ Tool to summarize test results
 # Usage
 <pre>
 After build:
-java -jar Test_Conclusion.jar &lt;filename from which the test results are read&gt; &lt;filename in which the result summarize is written&gt;
+java -jar Test_Conclusion.jar &lt;filename_from_which_the_test_results_are_read&gt; &lt;filename_in_which_the_result_summarize_is_written&gt;
 </pre>
 
 # Structure of input file
