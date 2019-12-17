@@ -9,7 +9,7 @@ java -jar Test_Conclusion.jar &lt;filename_from_which_the_test_results_are_read&
 
 # Structure of input file
 <pre>
-<b>Before each methodName <i>\t</i> required!</b>
+<b>Before each methodName <code>\t</code> required!</b>
 13.12.2019 10:00:00 - TEST BEGIN
 ClassNameA:
   methodA1() - 00m 00s 096ms
