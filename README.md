@@ -34,8 +34,10 @@ ClassNameB:
   methodB1() - 00m 00s 231ms
   methodB1() - 02m 15s 938ms
 13.12.2019 10:06:00 - TEST END
+</pre>
 
 # Structure of output file
+<pre>
 Average times of tests results:
 Number of tests: 3
 testClassB:
