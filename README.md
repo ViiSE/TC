@@ -49,7 +49,7 @@ testClassA:
 </pre>
 
 # Support API tests
-If after the output file specify the key --api, then the option is turned on API test.
+If after the output file specify the key <b>--api</b>, then the option is turned on API test.
 
 # Structure of input file (for API)
 <pre>
