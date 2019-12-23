@@ -63,7 +63,7 @@ GET:
   http:myapi.com/get/point/2 - 00m 00s 219ms
 TEST END
 TEST BEGIN
-POST
+POST:
   http:myapi.com/post/point/1 - 00m 00s 081ms
 TEST END
 </pre>
