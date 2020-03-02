@@ -4,7 +4,7 @@ Tool to summarize test results
 # Usage
 <pre>
 After build:
-java -jar Test_Conclusion.jar &lt;filename_from_which_the_test_results_are_read&gt; &lt;filename_in_which_the_result_summarize_is_written&gt;
+java -jar Test_Conclusion.jar &lt;filename_from_which_the_test_results_are_read&gt; &lt;filename_in_which_the_result_summarize_is_written&gt; <i>Optional Third Parameter</i> --api
 </pre>
 
 # Structure of input file
@@ -47,3 +47,35 @@ testClassA:
   methodA1(): 00m 00s 114ms
   methodA2(): 00m 00s 063ms
 </pre>
+
+# Support API tests
+If after the output file specify the key <b>--api</b>, then the option is turned on API test.
+
+# Structure of input file (for API)
+<pre>
+<b>WARNING!</b> Before each method name <b>\t</b> required!
+TEST BEGIN
+GET:
+  http:myapi.com/get/point/1 - 00m 00s 096ms
+TEST END
+TEST BEGIN
+GET:
+  http:myapi.com/get/point/2 - 00m 00s 219ms
+TEST END
+TEST BEGIN
+POST:
+  http:myapi.com/post/point/1 - 00m 00s 081ms
+TEST END
+</pre>
+
+# Structure of output file (for API)
+<pre>
+Average times of tests results:
+Number of tests: 3
+GET:
+  http:myapi.com/get/point/1 - 00m 00s 096ms
+  http:myapi.com/get/point/2 - 00m 00s 219ms
+POST:
+  http:myapi.com/post/point/1 - 00m 00s 081ms
+</pre>
+
