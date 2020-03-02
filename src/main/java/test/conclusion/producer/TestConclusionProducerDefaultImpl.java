@@ -14,23 +14,27 @@
  *   limitations under the License.
  */
 
-package test.conclusion.producer.time;
+package test.conclusion.producer;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import test.conclusion.time.DateFormatter;
+import test.conclusion.TestConclusion;
+import test.conclusion.TestConclusionDefaultImpl;
 
-@Service("dateFormatterProducerDefault")
-public class DateFormatterProducerDefaultImpl implements DateFormatterProducer {
+import java.util.Date;
+import java.util.Map;
+
+@Service("testConclusionProducerDefault")
+public class TestConclusionProducerDefaultImpl implements TestConclusionProducer {
 
     private final ApplicationContext ctx;
 
-    public DateFormatterProducerDefaultImpl(ApplicationContext ctx) {
+    public TestConclusionProducerDefaultImpl(ApplicationContext ctx) {
         this.ctx = ctx;
     }
 
     @Override
-    public DateFormatter getDateFormatterDefaultInstance() {
-        return ctx.getBean(DateFormatter.class);
+    public TestConclusion<Map<String, Map<String, Date>>> getTestConclusionDefaultInstance() {
+        return ctx.getBean("testConclusionDefault", TestConclusionDefaultImpl.class);
     }
 }

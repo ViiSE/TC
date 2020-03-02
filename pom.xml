@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.fd.util</groupId>
 	<artifactId>TestConclusion</artifactId>
-	<version>1.0</version>
-	<name>TestConclusion</name>
+	<version>2.0</version>
+	<name>TC</name>
 	<description>Test Conclusion</description>
 
 	<properties>
@@ -25,7 +25,7 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
-					<finalName>Test_Conclusion</finalName>
+					<finalName>TC</finalName>
 					<appendAssemblyId>false</appendAssemblyId>
 				</configuration>
 			</plugin>

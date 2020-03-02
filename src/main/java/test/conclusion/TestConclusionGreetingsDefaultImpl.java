@@ -14,23 +14,18 @@
  *   limitations under the License.
  */
 
-package test.conclusion.producer.time;
+package test.conclusion;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Service;
-import test.conclusion.time.DateFormatter;
+import org.springframework.stereotype.Component;
 
-@Service("dateFormatterProducerDefault")
-public class DateFormatterProducerDefaultImpl implements DateFormatterProducer {
-
-    private final ApplicationContext ctx;
-
-    public DateFormatterProducerDefaultImpl(ApplicationContext ctx) {
-        this.ctx = ctx;
-    }
+@Component("testConclusionGreetingsDefault")
+public class TestConclusionGreetingsDefaultImpl implements TestConclusionGreetings {
 
     @Override
-    public DateFormatter getDateFormatterDefaultInstance() {
-        return ctx.getBean(DateFormatter.class);
+    public void greeting() {
+        System.out.println("+------------+");
+        System.out.println("| Get ready! |");
+        System.out.println("+------------+");
+        try { Thread.sleep(700); } catch (InterruptedException ignored) {}
     }
 }

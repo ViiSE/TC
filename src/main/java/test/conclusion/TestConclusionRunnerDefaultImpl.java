@@ -1,45 +1,46 @@
+/*
+ *   Copyright 2020 ViiSE
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
+
 package test.conclusion;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import test.conclusion.file.TestFile;
 import test.conclusion.format.TestFormatter;
-import test.conclusion.print.TestConclusionPrinter;
 import test.conclusion.service.TestConclusionRunnerProducerService;
-import test.conclusion.time.DateParser;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Component("testConclusionRunnerDefault")
-@Scope("prototype")
-public class TestConclusionRunnerDefaultImpl implements TestConclusionRunner {
+public class TestConclusionRunnerDefaultImpl implements TestConclusionRunner<String> {
 
     private final TestClasses testClasses;
-    private final TestFile<List<String>> testFile;
     private final TestFormatter<String, String, String> testFormatter;
     private final TestConclusionRunnerProducerService service;
-    private final DateParser dateParser;
-    private final String fullFilename;
 
     public TestConclusionRunnerDefaultImpl(
             TestClasses testClasses,
-            TestFile<List<String>> testFile,
             TestFormatter<String, String, String> testFormatter,
-            TestConclusionRunnerProducerService service,
-            DateParser dateParser,
-            String fullFilename) {
+            TestConclusionRunnerProducerService service) {
         this.testClasses = testClasses;
-        this.testFile = testFile;
         this.testFormatter = testFormatter;
         this.service = service;
-        this.dateParser = dateParser;
-        this.fullFilename = fullFilename;
     }
 
     @Override
-    public void run() {
+    public void run(String fullFilename, TestFile<List<String>> testFile) {
         List<String> content = testFile.content();
         String testClassName = "";
         for(String line: content) {
@@ -47,36 +48,20 @@ public class TestConclusionRunnerDefaultImpl implements TestConclusionRunner {
                 String methodName = testFormatter.formatMethod(line);
                 String testTime = testFormatter.formatTime(line);
                 TestMethod testMethod = service.testMethodCreatorProducer()
-                        .getTestMethodCreatorDefaultInstance(
-                                service.testMethodProducer(),
-                                dateParser,
-                                methodName,
-                                testTime)
-                        .create();
+                        .getTestMethodCreatorDefaultInstance()
+                        .create(new String[] {methodName, testTime});
                 testClasses.addTestMethod(testClassName, testMethod);
             } else {
                 testClassName = testFormatter.formatClass(line);
                 TestClass testClass = service.testClassCreatorProducer()
-                        .getTestClassCreatorDefaultInstance(
-                                service.testClassProducer(),
-                                testClassName)
-                        .create();
+                        .getTestClassCreatorDefaultInstance()
+                        .create(testClassName);
                 testClasses.addClass(testClass);
             }
         }
 
-        Map<String, Map<String, Date>> result = testClasses.calculateAvgTime();
-        TestConclusionPrinter<String> tcp =
-                service.testConclusionPrinterProducer()
-                        .getTestConclusionPrinterDefaultInstance(
-                                result,
-                                service.dateFormatterProducer().getDateFormatterDefaultInstance(),
-                                testFile.numberOfTests());
-        service.testConclusionPrinterProducer()
-                .getTestConclusionPrinterToWindowInstance(tcp)
-                .print();
-        service.testConclusionPrinterProducer()
-                .getFileTestConclusionPrinterToFileInstance(tcp, fullFilename)
-                .print();
+        service.testConclusionProducer()
+                .getTestConclusionDefaultInstance()
+                .create(fullFilename, testClasses.calculateAvgTime(), testFile.numberOfTests());
     }
 }
