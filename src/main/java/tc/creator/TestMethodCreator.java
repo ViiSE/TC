@@ -15,19 +15,9 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.creator;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import tc.TestMethod;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
-
-    @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
-    }
+public interface TestMethodCreator extends Creatable<TestMethod, String[]> {
 }

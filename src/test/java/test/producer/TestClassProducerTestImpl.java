@@ -17,10 +17,10 @@
 
 package test.producer;
 
-import test.conclusion.TestClass;
-import test.conclusion.TestClassDefaultImpl;
-import test.conclusion.TestMethod;
-import test.conclusion.producer.TestClassProducer;
+import tc.TestClass;
+import tc.TestClassDefaultImpl;
+import tc.TestMethod;
+import tc.producer.TestClassProducer;
 
 import java.util.List;
 

@@ -15,19 +15,12 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.constants;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
-
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
-
-    @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
-    }
+public class APIConstants {
+    public static final String GET = "GET";
+    public static final String POST = "POST";
+    public static final String PUT = "PUT";
+    public static final String DELETE = "DELETE";
+    public static final String NONE = "NONE";
 }

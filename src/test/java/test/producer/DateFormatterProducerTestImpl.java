@@ -17,9 +17,9 @@
 
 package test.producer;
 
-import test.conclusion.producer.time.DateFormatterProducer;
-import test.conclusion.time.DateFormatter;
-import test.conclusion.time.DateFormatterDefaultImpl;
+import tc.producer.time.DateFormatterProducer;
+import tc.time.DateFormatter;
+import tc.time.DateFormatterDefaultImpl;
 
 public class DateFormatterProducerTestImpl implements DateFormatterProducer {
 

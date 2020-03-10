@@ -15,19 +15,24 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.time;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import org.testng.annotations.Test;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+import java.util.Date;
 
-    @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
+import static org.testng.Assert.assertEquals;
+
+public class DateParserTestNG {
+
+    @Test
+    public void parse() {
+        String time = "00m 00s 096ms";
+
+        DateParser dateParser = new DateParserDefaultPatternImpl();
+        Date pDate = dateParser.parse(time);
+
+        System.out.println(pDate.getTime());
+        assertEquals(pDate.getTime(), -35999904, "Time is not equals!");
     }
 }

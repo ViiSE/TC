@@ -15,19 +15,11 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.time;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import tc.format.Formatter;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+import java.util.Date;
 
-    @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
-    }
+public interface DateFormatter extends Formatter<Date> {
 }

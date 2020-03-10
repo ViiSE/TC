@@ -17,9 +17,9 @@
 
 package test.producer;
 
-import test.conclusion.TestMethod;
-import test.conclusion.TestMethodDefaultImpl;
-import test.conclusion.producer.TestMethodProducer;
+import tc.TestMethod;
+import tc.TestMethodDefaultImpl;
+import tc.producer.TestMethodProducer;
 
 import java.util.Date;
 import java.util.List;

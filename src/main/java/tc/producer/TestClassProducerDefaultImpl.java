@@ -15,19 +15,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.producer;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
+import tc.TestClass;
+import tc.TestMethod;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+import java.util.List;
+
+@Service("testClassProducerDefault")
+public class TestClassProducerDefaultImpl implements TestClassProducer {
+
+    private final ApplicationContext ctx;
+
+    public TestClassProducerDefaultImpl(ApplicationContext ctx) {
+        this.ctx = ctx;
+    }
 
     @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
+    public TestClass getTestClassDefaultInstance(String testClassName, List<TestMethod> testMethods) {
+        return (TestClass) ctx.getBean("testClassDefault", testClassName, testMethods);
     }
 }

@@ -15,19 +15,18 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import org.springframework.stereotype.Component;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+@Component("tcGreetingsDefault")
+public class TCGreetingsDefaultImpl implements TCGreetings {
 
     @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
+    public void greeting() {
+        System.out.println("+------------+");
+        System.out.println("| Get ready! |");
+        System.out.println("+------------+");
+        try { Thread.sleep(700); } catch (InterruptedException ignored) {}
     }
 }

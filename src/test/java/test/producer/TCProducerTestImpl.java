@@ -17,17 +17,20 @@
 
 package test.producer;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import tc.TC;
+import tc.TCDefaultImpl;
+import tc.producer.TCProducer;
+import tc.time.DateFormatterDefaultImpl;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+import java.util.Date;
+import java.util.Map;
+
+public class TCProducerTestImpl implements TCProducer {
 
     @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
+    public TC<Map<String, Map<String, Date>>> getTCDefaultInstance() {
+        return new TCDefaultImpl(
+                new DateFormatterDefaultImpl(),
+                new TCPrinterProducerTestImpl());
     }
 }

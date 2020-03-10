@@ -17,9 +17,9 @@
 
 package test.producer;
 
-import test.conclusion.creator.TestClassCreator;
-import test.conclusion.creator.TestClassCreatorDefaultImpl;
-import test.conclusion.producer.creator.TestClassCreatorProducer;
+import tc.creator.TestClassCreator;
+import tc.creator.TestClassCreatorDefaultImpl;
+import tc.producer.creator.TestClassCreatorProducer;
 
 public class TestClassCreatorProducerTestImpl implements TestClassCreatorProducer {
 

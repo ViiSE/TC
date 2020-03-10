@@ -6,7 +6,7 @@
 	<artifactId>TestConclusion</artifactId>
 	<version>2.0</version>
 	<name>TC</name>
-	<description>Test Conclusion</description>
+	<description>Tool to summarize test results</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -19,7 +19,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>test.conclusion.TestConclusionApplication</mainClass>
+							<mainClass>tc.TCApplication</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

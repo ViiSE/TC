@@ -15,19 +15,26 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.print;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+@Component("tcPrinterToWindow")
+@Scope("prototype")
+public class TCPrinterToWindowImpl implements TCPrinter<Void> {
+
+    private final TCPrinter<String> tcPrinter;
+
+    public TCPrinterToWindowImpl(TCPrinter<String> tcPrinter) {
+        this.tcPrinter = tcPrinter;
+    }
 
     @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
+    public Void print() {
+        String result = tcPrinter.print();
+        System.out.println(result);
+
+        return null;
     }
 }

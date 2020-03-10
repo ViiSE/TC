@@ -15,19 +15,23 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package test.producer;
+package tc.producer.print;
 
-import tc.creator.TestMethodCreator;
-import tc.creator.TestMethodCreatorDefaultImpl;
-import tc.producer.creator.TestMethodCreatorProducer;
-import tc.time.DateParserDefaultPatternImpl;
+import tc.print.TCPrinter;
+import tc.time.DateFormatter;
 
-public class TestMethodCreatorProducerTestImpl implements TestMethodCreatorProducer {
+import java.io.File;
+import java.util.Date;
+import java.util.Map;
 
-    @Override
-    public TestMethodCreator getTestMethodCreatorDefaultInstance() {
-        return new TestMethodCreatorDefaultImpl(
-                new TestMethodProducerTestImpl(),
-                new DateParserDefaultPatternImpl());
-    }
+public interface TCPrinterProducer {
+    TCPrinter<String> getTCPrinterDefaultInstance(
+            Map<String, Map<String, Date>> data,
+            DateFormatter dateFormatter,
+            long numberOfTests);
+    TCPrinter<Void> getTCPrinterToWindowInstance(
+            TCPrinter<String> tcPrinter);
+    TCPrinter<File> getFileTCPrinterToFileInstance(
+            TCPrinter<String> tcPrinter,
+            String fullFilename);
 }
