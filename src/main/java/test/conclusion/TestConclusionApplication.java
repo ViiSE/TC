@@ -29,14 +29,7 @@ public class TestConclusionApplication {
 
 	public static void main(String[] args) {
 		String shKeyApi = "";
-
-		args = new String[]{
-//				"/home/viise/fd-api/api-bot/API-Bot/target/lightsearch_result",
-				"/home/viise/fd-api/fd-api-service/FD-API-Service/elapse_time_test_50",
-				"/home/viise/fd-api/api-bot/API-Bot/target/new_res_test_NO_API"
-		};
-//				"--api"};
-
+		
 		if(args.length == 0)
 			throw new RuntimeException("Enter the filename from which the test results are read!");
 		if(args.length == 1)
