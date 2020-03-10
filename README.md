@@ -1,3 +1,7 @@
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/43209824/76285395-6801b380-62eb-11ea-8d5e-5f5177cfdad2.png"
+     width="300" height="300">
+</p>
 # TC - TestConclusion
 Tool to summarize test results 
 
