@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src="https://user-images.githubusercontent.com/43209824/76285561-c5960000-62eb-11ea-8479-7a3d528f5c19.png"
+<img src="https://user-images.githubusercontent.com/43209824/76286292-78b32900-62ed-11ea-82c9-b73e277d4880.png"
      width="300" height="300">
 </p>
 # TC - TestConclusion
