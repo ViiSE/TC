@@ -4,7 +4,7 @@ Tool to summarize test results
 # Usage
 <pre>
 After build:
-java -jar Test_Conclusion.jar &lt;filename_from_which_the_test_results_are_read&gt; &lt;filename_in_which_the_result_summarize_is_written&gt; <i>Optional Third Parameter</i> --api
+java -jar TC.jar &lt;filename_from_which_the_test_results_are_read&gt; &lt;filename_in_which_the_result_summarize_is_written&gt; <i>Optional Third Parameter</i> --api
 </pre>
 
 # Structure of input file
